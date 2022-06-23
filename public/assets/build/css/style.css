@@ -1,0 +1,129 @@
+.login_form {
+    background: #ffffff;
+    padding: 40px;
+    box-shadow: 5px 6px 10px #ebebeb;
+}
+
+.login_wrapper {
+    right: 0px;
+    margin: 0px auto;
+    margin-top: 5%;
+    max-width: 450px;
+    position: relative;
+}
+
+.login-image img {
+    max-width: 138px;
+    margin-top: -45px;
+}
+
+.login_form .form-check {
+    text-align: start;
+}
+
+.login-btn {
+    text-align: start;
+}
+
+.login-btn button {
+    background-color: #ec9022;
+    color: #FFF;
+    padding: 5px 24px;
+    margin-top: 30px;
+}
+
+.login_content div .reset_pass {
+    margin-top: 50px !important;
+    margin-right: 39px;
+    float: right;
+}
+
+body {
+    color: #73879C;
+    background: #2A3F54;
+    font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.471;
+}
+
+.nav_title {
+    width: 230px;
+    float: left;
+    background: #ededed;
+    border-radius: 0;
+    height: 57px;
+    padding: 0px;
+}
+
+.nav_title img {
+    width: 100px;
+    padding: 10px;
+}
+
+.btn-dark {
+    color: #E9EDEF;
+    background-color: #ff9800;
+    border-color: #ff9800;
+}
+
+.btn-dark:hover,
+.btn-dark:focus,
+.btn-dark:active,
+.btn-dark.active,
+.open .dropdown-toggle.btn-dark {
+    color: #FFFFFF;
+    background-color: #e26a01;
+    border-color: #e26a01;
+}
+
+.btn-dark:not(:disabled):not(.disabled).active,
+.btn-dark:not(:disabled):not(.disabled):active,
+.show>.btn-dark.dropdown-toggle {
+    color: #fff;
+    background-color: #ff9800;
+    border-color: #ff9800;
+}
+
+.btn-dark:not(:disabled):not(.disabled).active:focus,
+.btn-dark:not(:disabled):not(.disabled):active:focus,
+.show>.btn-dark.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0 #ff9800;
+}
+
+.btn-success {
+    background: #06123c;
+    border: 1px solid #06123c;
+}
+
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active,
+.btn-success.active,
+.open .dropdown-toggle.btn-success {
+    background: #000a2d;
+    border: 1px solid #06123c;
+}
+
+.nav.side-menu>li.current-page,
+.nav.side-menu>li.active {
+    border-right: 5px solid #ed9720;
+}
+
+.page-link {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #2a3f54;
+    background-color: #fff;
+    border: 1px solid #2a3f54;
+}
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: #ed9720;
+    background-color: #2a3f54;
+    border-color: #2a3f54;
+}
