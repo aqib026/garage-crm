@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="images/favicon.ico" type="image/ico" />
 
-    <title>Carfix Curacao | Dashboard | </title>
+    <title>Carfix Curacao | Vehicle Registration Form </title>
 
     <!-- Bootstrap -->
     <link href="{{ asset('assets') }}/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -17,7 +17,7 @@
     <link href="{{ asset('assets') }}/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
     <link href="{{ asset('assets') }}/vendors/nprogress/nprogress.css" rel="stylesheet">
-  
+
 
     <!-- bootstrap-progressbar -->
     <link href="{{ asset('assets') }}/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css"
@@ -27,27 +27,17 @@
     <link href="{{ asset('assets') }}/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="{{ asset('assets') }}/build/css/custom.min.css" rel="stylesheet">
-    <link href="{{asset('assets')}}/build/css/style.css" rel="stylesheet">
-    <link href="{{asset('assets')}}/build/css/rec-style.css" rel="stylesheet">
-
+    {{-- <link href="{{ asset('assets') }}/build/css/custom.min.css" rel="stylesheet"> --}}
+    <link href="{{ asset('assets') }}/build/css/style.css" rel="stylesheet">
+    <style scoped>
+        footer {
+            margin: 0px
+        }
+    </style>
 </head>
 
-<body class="nav-md">
-    <div class="container body">
-        <div class="main_container">
-            @include('partials.sidebar')
-            @include('partials.topbar')
-            @yield('content')
-              <!-- footer content -->
-        <footer>
-            <div class="pull-right">
-                <p>2022 © <a href="{{URL('/')}}">Carfix-Curacao</a>  -  company. All rights reserved.</p>
-            </div>
-            <div class="clearfix"></div>
-          </footer>
-          <!-- /footer content -->
-        </div>
+<body class="bg-transparent">
+    @yield('content')
     </div>
 
     <!-- jQuery -->
@@ -62,13 +52,13 @@
     <!-- bootstrap-progressbar -->
     <script src="{{ asset('assets') }}/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
     <!-- iCheck -->
- 
+
     <!-- Skycons -->
     <!-- Flot -->
-   
- 
-   
-   
+
+
+
+
     <!-- bootstrap-daterangepicker -->
     <script src="{{ asset('assets') }}/vendors/moment/min/moment.min.js"></script>
     <script src="{{ asset('assets') }}/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>

@@ -38,7 +38,7 @@
     float: right;
 }
 
-body {
+body.nav-md {
     color: #73879C;
     background: #2A3F54;
     font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
@@ -126,4 +126,113 @@ body {
     color: #ed9720;
     background-color: #2a3f54;
     border-color: #2a3f54;
+}
+
+.main-title {
+    color: #06123c;
+    border-bottom: 5px solid #06123c;
+}
+
+.vehicle-form .form-group {
+    display: flex;
+    margin-bottom: 0px !important;
+    align-items: center;
+}
+
+.vehicle-form .form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 2px solid #06123c;
+    border-radius: 0;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.vehicle-form .form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #06123c;
+    outline: 0;
+    box-shadow: 0 0 0 0 #06123c;
+}
+
+.vehicle-form .r-main {
+    border-bottom: 4px solid #06123c;
+    padding-bottom: 21px;
+}
+
+.vehicle-form .r-description {
+    margin: 8px;
+    font-size: 12px;
+}
+
+.registration-info img {
+    max-width: 320px;
+    margin-top: 0px;
+}
+
+.registration-info .info-details {
+    font-size: 14px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.r-description p {
+    margin-bottom: 0!important;
+}
+
+.complaints-meta {
+    border: 1px solid black;
+}
+
+.complaints-meta h6 {
+    border-bottom: 1px solid black;
+    display: inline;
+}
+
+.signature-label {
+    border-right: 1px solid black;
+}
+
+.mechanic-content {
+    border: 1px solid black;
+    border-bottom: 0;
+}
+
+.mechanic-content label {
+    border-bottom: 1px solid black;
+    display: block;
+    background-color: gray;
+    font-weight: bold;
+}
+
+.inspect-input,
+.overall-remarks {
+    border: 1px solid black;
+}
+
+.inspect-input .form-control {
+    border-bottom: 0;
+    width: 140px;
+}
+
+.agreement-input {
+    width: 100px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+.agreement-input:focus-visible {
+    outline: none !important;
 }

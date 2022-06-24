@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VehicleRegistrationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,5 +29,7 @@ Route::post('/edit-user/{id}', [UserController::class, 'update'])->name('users.u
 Route::get('/delete-user/{id}', [UserController::class, 'destroy'])->name('user.delete');
 
 Route::get('/change-password', [ChangePasswordController::class, 'index'])->name('change.password');
+
+Route::get('/vehicle-registration', [VehicleRegistrationController::class, 'index'])->name('vehicle.register');
 
 

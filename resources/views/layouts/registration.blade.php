@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="images/favicon.ico" type="image/ico" />
 
-    <title>Carfix Curacao | Dashboard | </title>
+    <title>Carfix Curacao | Vehicle Registration </title>
 
     <!-- Bootstrap -->
     <link href="{{ asset('assets') }}/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -30,22 +30,19 @@
     <link href="{{ asset('assets') }}/build/css/custom.min.css" rel="stylesheet">
     <link href="{{asset('assets')}}/build/css/style.css" rel="stylesheet">
     <link href="{{asset('assets')}}/build/css/rec-style.css" rel="stylesheet">
-
+ <style scoped>
+    footer{
+        margin:0px
+    }
+ </style>
 </head>
 
-<body class="nav-md">
-    <div class="container body">
+<body class="bg-transparent">
+    <div class="container ">
         <div class="main_container">
-            @include('partials.sidebar')
-            @include('partials.topbar')
             @yield('content')
               <!-- footer content -->
-        <footer>
-            <div class="pull-right">
-                <p>2022 © <a href="{{URL('/')}}">Carfix-Curacao</a>  -  company. All rights reserved.</p>
-            </div>
-            <div class="clearfix"></div>
-          </footer>
+    
           <!-- /footer content -->
         </div>
     </div>
