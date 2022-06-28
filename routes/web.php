@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VehicleRegistrationController;
@@ -31,5 +32,7 @@ Route::get('/delete-user/{id}', [UserController::class, 'destroy'])->name('user.
 Route::get('/change-password', [ChangePasswordController::class, 'index'])->name('change.password');
 
 Route::get('/vehicle-registration', [VehicleRegistrationController::class, 'index'])->name('vehicle.register');
+Route::post('/vehicle-registration', [VehicleRegistrationController::class, 'vehicleRegisrationPost'])->name('vehicle.register.post');
+Route::post('/ajax-search', [AjaxController::class, 'index'])->name('ajax.search');
 
 

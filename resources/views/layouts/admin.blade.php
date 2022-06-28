@@ -75,7 +75,7 @@
 
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('assets') }}/build/js/custom.min.js"></script>
-
+    
 </body>
 
 </html>

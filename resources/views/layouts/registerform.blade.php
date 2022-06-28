@@ -29,6 +29,7 @@
     <!-- Custom Theme Style -->
     {{-- <link href="{{ asset('assets') }}/build/css/custom.min.css" rel="stylesheet"> --}}
     <link href="{{ asset('assets') }}/build/css/style.css" rel="stylesheet">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <style scoped>
         footer {
             margin: 0px
@@ -65,7 +66,8 @@
 
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('assets') }}/build/js/custom.min.js"></script>
-
+    <script type="text/javascript" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js"></script>
+    @yield('page-script')
 </body>
 
 </html>
