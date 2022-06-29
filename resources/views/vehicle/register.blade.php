@@ -7,7 +7,7 @@
                 <div class="col-lg-8">
                     <div class="card border-0 shadow-lg">
                         <div class="card-header text-center">
-                            <img src="{{ asset('assets/images/logo.png') }}" alt="">
+                            <a href="{{URL('/')}}"><img src="{{ asset('assets/images/logo.png') }}" alt=""></a> 
                             <h2>Vehicle Registration</h2>
                             @include('../partials.navigation')
                         </div>

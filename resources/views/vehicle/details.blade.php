@@ -28,7 +28,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="vehicle-detail vehicle-detail-title">
-                                        <h5 class="text-uppercase mb-3">Vehicle Detail - {{$vehicle->vin}}</h5>
+                                        <h5 class="text-uppercase mb-3">Vehicle Detail -  {{$vehicle->vin}}</h5>
                                         <div class="detail-text">
                                             <strong>Make:</strong>
                                             <span class="ml-3">{{$vehicle->make}}</span>
