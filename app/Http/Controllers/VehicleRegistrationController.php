@@ -59,7 +59,7 @@ class VehicleRegistrationController extends Controller
       }
    }
    public function show($id){
-      $vehicle = VehicleRegistration::findorFail($id);
-      return view('vehicle.details');
+      $vehicle = VehicleRegistration::with('complains')->findorFail($id);
+      return view('vehicle.details',compact('vehicle'));
    }
 }
