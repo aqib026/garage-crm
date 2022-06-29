@@ -268,3 +268,27 @@ i.loader {
         transform: rotate(360deg);
     }
 }
+
+.car-fix-banner {
+    margin-top: 50px!important;
+}
+
+.card-header img {
+    width: 150px;
+    margin: -50px 0 15px;
+}
+
+.card-header h2 {
+    font-size: 22px;
+}
+
+.form-navbar li a {
+    color: #ef991f;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all .3s;
+}
+
+.form-navbar li:hover a {
+    opacity: .7;
+}
