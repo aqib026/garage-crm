@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <div class="card border-0 shadow-lg" style="box-shadow:3px 6px 7px #d4d2d2;">
+                    <div class="card border-0 shadow-lg">
                         <div class="card-header text-center">
                             <img src="{{ asset('assets/images/logo.png') }}" alt="">
                             <h2>Vehicle Registration</h2>
@@ -27,10 +27,10 @@
                                 @endif
                                 <div class="row align-items-center">
                                     <div class="col-md-6">
-                                        <div class="form-group">
+                                        <div class="form-group mb-2">
                                             <label for="license_plate">License plate#</label>
                                             <input type="text" value="" data-inputmask="'mask': '99-99 A'"
-                                                class="form-control" name="license_plate" id="license_plate">
+                                                class="form-control shadow-none" name="license_plate" id="license_plate">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -39,67 +39,67 @@
                                 </div>
                                 <div class="row ">
                                     <div class="col-md-6">
-                                        <div class="form-group">
+                                        <div class="form-group mb-2">
                                             <label for="name">Name:</label>
-                                            <input type="text" value="" class="form-control" name="name" id="name">
+                                            <input type="text" value="" class="form-control shadow-none" name="name" id="name">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-group">
+                                        <div class="form-group mb-2">
                                             <label for="email">Email</label>
-                                            <input type="email" value="" class="form-control" name="email" id="email">
+                                            <input type="email" value="" class="form-control shadow-none" name="email" id="email">
                                         </div>
                                     </div>
         
                                     <div class="col-md-6">
-                                        <div class="form-group">
+                                        <div class="form-group mb-2">
                                             <label for="phone">Phone# (WhatsApp)</label>
-                                            <input type="text" value="" class="form-control" name="phone" id="phone">
+                                            <input type="text" value="" class="form-control shadow-none" name="phone" id="phone">
                                         </div>
                                     </div>
         
         
                                     <div class="col-md-6">
-                                        <div class="form-group">
+                                        <div class="form-group mb-2">
                                             <label for="make">Make</label>
-                                            <input type="text" value="" class="form-control" name="make" id="make">
+                                            <input type="text" value="" class="form-control shadow-none" name="make" id="make">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
         
-                                        <div class="form-group">
+                                        <div class="form-group mb-2">
                                             <label for="model">Model</label>
-                                            <input type="text" value="" class="form-control" name="model" id="model">
+                                            <input type="text" value="" class="form-control shadow-none" name="model" id="model">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
         
-                                        <div class="form-group">
+                                        <div class="form-group mb-2">
                                             <label for="year">Year</label>
-                                            <input type="text" value="" class="form-control" name="year" id="year">
+                                            <input type="text" value="" class="form-control shadow-none" name="year" id="year">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-group">
+                                        <div class="form-group mb-2">
                                             <label for="vin">Vin#</label>
-                                            <input type="text" value="" class="form-control" name="vin" id="vin">
+                                            <input type="text" value="" class="form-control shadow-none" name="vin" id="vin">
                                         </div>
                                     </div>
                                     <div id="lastVisit" class="col-md-6 hidden">
-                                        <div class="form-group">
+                                        <div class="form-group mb-2">
                                             <label for="last_visit">last Visit#</label>
-                                            <input type="text" value="" class="form-control" name="last_visit"
+                                            <input type="text" value="" class="form-control shadow-none" name="last_visit"
                                                 id="last_visit" disabled>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <div class="form-group">
+                                        <div class="form-group mb-2">
                                             <label for="complaint">Complaint/ service</label>
-                                            <textarea value="" class="form-control" name="complaint" id="complaint"></textarea>
+                                            <textarea value="" class="form-control shadow-none" name="complaint" id="complaint"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <div class="form-group">
+                                        <div class="form-group mb-2">
                                             <button type="submit" class="btn btn-success">Submit</button>
                                         </div>
                                     </div>
