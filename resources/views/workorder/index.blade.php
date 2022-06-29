@@ -10,7 +10,7 @@
                             <img src="{{ asset('assets/images/logo.png') }}" alt="">
                             <h2>Vehicle Registration</h2>
                             @include('../partials.navigation')
-                            
+
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -18,25 +18,38 @@
                                     <thead class="text-uppercase bg-dark">
                                         <tr class="text-white">
                                             <th>S.no#</th>
-                                            <th>VIN</th>
-                                            <th>Make</th>
-                                            <th>Model</th>
+                                            <th>Details</th>
+                                            <th>vehicle</th>
+                                            <th>status</th>
                                             <th>date</th>
                                             <th>action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($vehicles as $item)
+                                        @foreach ($complains as $item)
                                             <tr>
-                                                <td>{{$item->id}}</td>
-                                                <td>{{$item->vin}}</td>
-                                                <td>{{$item->make}}</td>
-                                                <td>{{$item->model}}</td>
-                                                <td>{{\Carbon\Carbon::parse($item->created_at)->toFormattedDateString();}}</td>
+                                                <td>{{ $item->id }}</td>
+                                                <td>{{ $item->complain }}</td>
+                                                <td>{{ $item->vehicle->model }}</td>
+                                                <td>
+
+                                                    @if ($item->status == 'Open')
+                                                        <span class="badge badge-success">{{ $item->status }}</span>
+                                                    @elseif($item->status == 'Paused')
+                                                        <span class="badge badge-warning">{{ $item->status }}</span>
+                                                    @elseif($item->status == 'Pending')
+                                                        <span class="badge badge-secondary">{{ $item->status }}</span>
+                                                        @else 
+                                                        <span class="badge badge-danger">{{ $item->status }}</span>
+                                                        
+                                                    @endif
+                                                </td>
+                                                <td>{{ \Carbon\Carbon::parse($item->created_at)->toFormattedDateString() }}
+                                                </td>
                                                 <td>
 
                                                 </td>
-                                                
+
                                             </tr>
                                         @endforeach
 
