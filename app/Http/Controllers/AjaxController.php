@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\VehicleRegistration;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -11,9 +12,12 @@ class AjaxController extends Controller
     {
 
         if ($request->ajax()) {
-            $vehicle = DB::table('vehicle_registrations')->where('license_no', 'LIKE', '%' . $request->license_no . "%")->orderBy('created_at','DESC')->first();
+
+            $vehicle = VehicleRegistration::with('lastvisit')->where('license_no', 'LIKE', '%' . $request->license_no . "%")->first();
+          
+
             if ($vehicle) {
-                $date = \Carbon\Carbon::parse($vehicle->created_at);
+                $date = \Carbon\Carbon::parse($vehicle->lastvisit->created_at);
                 $vehicle->last_visit = $date->toFormattedDateString();
 
                 return response()->json($vehicle);

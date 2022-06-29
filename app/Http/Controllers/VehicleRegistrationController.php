@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Complain;
 use App\Models\VehicleRegistration;
 use Illuminate\Http\Request;
 
 class VehicleRegistrationController extends Controller
 {
+   public function __construct()
+   {
+      $this->middleware(['auth']);
+   }
    public function index()
    {
       return view('vehicle.register');
@@ -25,8 +30,7 @@ class VehicleRegistrationController extends Controller
          'model' => 'required',
          'year' => 'required',
          'vin' => 'required',
-         'complaint' => 'required',
-     ]);
+      ]);
       $v_registration->license_no = $request->license_plate;
       $v_registration->name = $request->name;
       $v_registration->email = $request->email;
@@ -35,8 +39,14 @@ class VehicleRegistrationController extends Controller
       $v_registration->model = $request->model;
       $v_registration->year = $request->year;
       $v_registration->vin = $request->vin;
-      $v_registration->complaint = $request->complaint;
       $v_registration->save();
-       return back()->with('success','Vehichle is registerd Successfully');
+      if ($v_registration) {
+         $id  = $v_registration->id;
+         $complain = new Complain();
+         $complain->complain = $request->complaint;
+         $complain->vehicle_id = $id;
+         $complain->save();
+      }
+      return back()->with('success', 'Vehichle is registerd Successfully');
    }
 }
