@@ -33,34 +33,31 @@ class VehicleRegistrationController extends Controller
          'year' => 'required',
          'vin' => 'required',
       ]);
-      if ($request->vehicle_id != null) {
-         $id  = $request->vehicle_id;
-         $complain = new Complain();
-         $complain->complain = $request->complaint;
-         $complain->vehicle_id = $id;
-         $complain->save();
-         return back()->with('success', 'Complain registerd Successfully');
 
-      } else {
-         $v_registration = new VehicleRegistration();
-         $v_registration->license_no = $request->license_plate;
-         $v_registration->name = $request->name;
-         $v_registration->email = $request->email;
-         $v_registration->phone = $request->phone;
-         $v_registration->make = $request->make;
-         $v_registration->model = $request->model;
-         $v_registration->year = $request->year;
-         $v_registration->vin = $request->vin;
-         $v_registration->save();
-         if ($v_registration) {
-            $id  = $v_registration->id;
+      $data = [
+         'name'=>$request->name,
+         'email'=>$request->email,
+         'phone'=>$request->phone,
+         'make'=>$request->make,
+         'model'=>$request->model,
+         'year'=>$request->year,
+         'vin'=>$request->vin,
+      ];
+       $record = VehicleRegistration::updateOrCreate([
+            'license_no'=>$request->license_plate
+       ],$data);
+      if($record){
+         $id  = $record->id;
             $complain = new Complain();
             $complain->complain = $request->complaint;
             $complain->vehicle_id = $id;
             $complain->save();
-         }
-         return back()->with('success', 'Vehichle is registerd Successfully');
+         return back()->with('success', 'Vehichle is registerd/updated Successfully');
+
+      
       }
+    
+      
    }
    public function create(){
       return view('vehicle.register');
