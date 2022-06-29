@@ -12,7 +12,7 @@
                                     <i class="fa fa-plus ml-1"></i>
                                 </a>
                             </div>
-                            <img src="{{ asset('assets/images/logo.png') }}" alt="">
+                            <a href="{{URL('/')}}"><img src="{{ asset('assets/images/logo.png') }}" alt=""></a> 
                             <h2>Vehicle Registration</h2>
                             @include('../partials.navigation')
                             
