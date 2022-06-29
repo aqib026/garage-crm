@@ -292,3 +292,37 @@ i.loader {
 .form-navbar li:hover a {
     opacity: .7;
 }
+
+.card-body .form-group .form-control {
+    height: 32px;
+}
+
+.card-body .form-group .form-control:focus {
+    border-color: #00113c!important;
+}
+
+.card-body .form-group textarea.form-control {
+    height: 100px;
+}
+
+.rv-btn {
+    background: #ef9b22;
+    padding: 8px 15px;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.rv-btn:hover {
+    color: #fff;
+}
+
+.vehicle-table thead {
+    background: #00113c;
+}
+
+.vehicle-table thead th {
+    font-size: 14px;
+    font-weight: 500;
+}
