@@ -326,3 +326,8 @@ i.loader {
     font-size: 14px;
     font-weight: 500;
 }
+
+.vehicle-detail-title h5 {
+    font-size: 18px!important;
+    font-weight: 700;
+}
