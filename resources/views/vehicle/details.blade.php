@@ -16,11 +16,11 @@
                                 <div class="col-md-6">
                                     <div class="user-detail vehicle-detail-title mb-5">
                                         <h5 class="text-uppercase mb-3">User Detail</h5>
-                                        <div>
+                                        <div class="detail-text">
                                             <strong>Name:</strong>
                                             <span class="ml-3">Waqar Hanif</span>
                                         </div>
-                                        <div>
+                                        <div class="detail-text">
                                             <strong>Email:</strong>
                                             <span class="ml-3">waqar.vu113@gmail.com</span>
                                         </div>
@@ -29,11 +29,11 @@
                                 <div class="col-md-6">
                                     <div class="vehicle-detail vehicle-detail-title">
                                         <h5 class="text-uppercase mb-3">Vehicle Detail</h5>
-                                        <div>
+                                        <div class="detail-text">
                                             <strong>Name:</strong>
                                             <span class="ml-3">Waqar Hanif</span>
                                         </div>
-                                        <div>
+                                        <div class="detail-text">
                                             <strong>Email:</strong>
                                             <span class="ml-3">waqar.vu113@gmail.com</span>
                                         </div>
@@ -42,11 +42,11 @@
                             </div>
                             <div class="table-responsive">
                                 <h5 class="text-uppercase mb-3">Complains</h5>
-                                <table class="table table-detail table-bordered">
-                                    <thead>
+                                <table class="table vehicle-table table-detail table-bordered">
+                                    <thead class="text-white text-center">
                                         <tr>
-                                            <th>Complains Detail</th>
-                                            <th>Complains Status</th>
+                                            <th width="60%">Detail</th>
+                                            <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>

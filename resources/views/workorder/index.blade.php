@@ -14,15 +14,14 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table text-center">
-                                    <thead class="text-uppercase bg-dark">
+                                <table class="vehicle-table table text-center">
+                                    <thead class="text-uppercase">
                                         <tr class="text-white">
                                             <th>S.no#</th>
                                             <th>Details</th>
                                             <th>vehicle</th>
                                             <th>status</th>
                                             <th>date</th>
-                                            <th>action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -46,9 +45,7 @@
                                                 </td>
                                                 <td>{{ \Carbon\Carbon::parse($item->created_at)->toFormattedDateString() }}
                                                 </td>
-                                                <td>
-
-                                                </td>
+                                               
 
                                             </tr>
                                         @endforeach
