@@ -26,6 +26,7 @@
                                             <th>VIN</th>
                                             <th>Make</th>
                                             <th>Model</th>
+                                            <th>Year</th>
                                             <th>date</th>
                                             <th>action</th>
                                         </tr>
@@ -37,6 +38,7 @@
                                                 <td>{{$item->vin}}</td>
                                                 <td>{{$item->make}}</td>
                                                 <td>{{$item->model}}</td>
+                                                <td>{{$item->year}}</td>
                                                 <td>{{\Carbon\Carbon::parse($item->created_at)->toFormattedDateString();}}</td>
                                                 <td>
                                                     <a class="v-details" href="{{route('vehichle.show',$item->id)}}"><i class="fa fa-eye"></i></a>

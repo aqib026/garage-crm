@@ -18,24 +18,28 @@
                                         <h5 class="text-uppercase mb-3">User Detail</h5>
                                         <div class="detail-text">
                                             <strong>Name:</strong>
-                                            <span class="ml-3">Waqar Hanif</span>
+                                            <span class="ml-3">{{$vehicle->name}}</span>
                                         </div>
                                         <div class="detail-text">
                                             <strong>Email:</strong>
-                                            <span class="ml-3">waqar.vu113@gmail.com</span>
+                                            <span class="ml-3">{{$vehicle->email}}</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="vehicle-detail vehicle-detail-title">
-                                        <h5 class="text-uppercase mb-3">Vehicle Detail</h5>
+                                        <h5 class="text-uppercase mb-3">Vehicle Detail - {{$vehicle->vin}}</h5>
                                         <div class="detail-text">
-                                            <strong>Name:</strong>
-                                            <span class="ml-3">Waqar Hanif</span>
+                                            <strong>Make:</strong>
+                                            <span class="ml-3">{{$vehicle->make}}</span>
                                         </div>
                                         <div class="detail-text">
-                                            <strong>Email:</strong>
-                                            <span class="ml-3">waqar.vu113@gmail.com</span>
+                                            <strong>Model:</strong>
+                                            <span class="ml-3">{{$vehicle->model}}</span>
+                                        </div>
+                                        <div class="detail-text">
+                                            <strong>Year:</strong>
+                                            <span class="ml-3">{{$vehicle->year}}</span>
                                         </div>
                                     </div>
                                 </div>
