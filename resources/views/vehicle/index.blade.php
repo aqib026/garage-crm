@@ -8,7 +8,7 @@
                     <div class="card border-0 shadow-lg" style="box-shadow:3px 6px 7px #d4d2d2;">
                         <div class="card-header text-center">
                             <div class="back-button text-left">
-                                <a href="#" class="rv-btn text-decoration-none">Register Vehicle
+                                <a href="{{route('vehicle.register')}}" class="rv-btn text-decoration-none">Register Vehicle
                                     <i class="fa fa-plus ml-1"></i>
                                 </a>
                             </div>
@@ -39,7 +39,7 @@
                                                 <td>{{$item->model}}</td>
                                                 <td>{{\Carbon\Carbon::parse($item->created_at)->toFormattedDateString();}}</td>
                                                 <td>
-
+                                                    <a href="{{route('vehichle.show',$item->id)}}"><i class="fa fa-eye"></i></a>
                                                 </td>
                                                 
                                             </tr>
