@@ -14,7 +14,7 @@ class ComplaintController extends Controller
      */
     public function index()
     {
-        $complains = Complain::all();
+        $complains = Complain::with('vehicle')->orderBy('created_at','DESC')->get();
         return view('workorder.index',compact('complains'));
     }
 
