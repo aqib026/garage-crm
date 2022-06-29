@@ -23,7 +23,6 @@ class CreateVehicleRegistrationsTable extends Migration
             $table->string('model')->nullable();
             $table->string('year')->nullable();
             $table->string('vin')->nullable();
-            $table->longText('complaint')->nullable();
             $table->timestamps();
         });
     }
