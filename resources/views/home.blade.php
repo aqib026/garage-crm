@@ -3,7 +3,7 @@
 @section('content')
     <div class="" >
         <!-- top tiles -->
-        <section class="car-fix-banner">
+        <section class="car-fix-banner shadow">
             <img src="{{ asset('assets') }}/build/images/flag-left.png" class="flag-left" alt="">
             <img src="{{ asset('assets') }}/build/images/flag-right.png" class="flag-right" alt="">
             <div class="car-logo">
@@ -14,7 +14,7 @@
                 <a href="{{route('vehicle.register')}}">start</a>
             </div>
             <footer class="footer">
-                <ul class="social-links">
+                <ul class="social-links pl-0">
                     <li>
                         <div class="bg-image">
                             <img src="{{ asset('assets') }}/build/images/location-pin.png" alt="">
