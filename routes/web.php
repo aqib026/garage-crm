@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\ComplaintController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VehicleRegistrationController;
 use Illuminate\Support\Facades\Route;
@@ -33,7 +34,7 @@ Route::get('/change-password', [ChangePasswordController::class, 'index'])->name
 
 Route::get('/vehicle-registration', [VehicleRegistrationController::class, 'create'])->name('vehicle.register');
 Route::get('/registered-vehicles', [VehicleRegistrationController::class, 'index'])->name('registred.vehicles');
+Route::get('/vehicle-details/{id}', [VehicleRegistrationController::class, 'show'])->name('vehichle.show');
 Route::post('/vehicle-registration', [VehicleRegistrationController::class, 'vehicleRegisrationPost'])->name('vehicle.register.post');
 Route::post('/ajax-search', [AjaxController::class, 'index'])->name('ajax.search');
-
-
+Route::get('/work-orders', [ComplaintController::class, 'index'])->name('work.orders');

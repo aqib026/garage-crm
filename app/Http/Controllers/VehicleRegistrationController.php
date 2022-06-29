@@ -14,9 +14,12 @@ class VehicleRegistrationController extends Controller
    }
    public function index()
    {
-      $vehicles = VehicleRegistration::orderBy('created_at','DESC')->get();
-      return view('vehicle.index',compact('vehicles'));
-    
+      $vehicles = VehicleRegistration::orderBy('created_at', 'DESC')->get();
+      return view('vehicle.index', compact('vehicles'));
+   }
+   public function create()
+   {
+      return view('vehicle.register');
    }
 
    public function vehicleRegisrationPost(Request $request)
@@ -35,31 +38,28 @@ class VehicleRegistrationController extends Controller
       ]);
 
       $data = [
-         'name'=>$request->name,
-         'email'=>$request->email,
-         'phone'=>$request->phone,
-         'make'=>$request->make,
-         'model'=>$request->model,
-         'year'=>$request->year,
-         'vin'=>$request->vin,
+         'name' => $request->name,
+         'email' => $request->email,
+         'phone' => $request->phone,
+         'make' => $request->make,
+         'model' => $request->model,
+         'year' => $request->year,
+         'vin' => $request->vin,
       ];
-       $record = VehicleRegistration::updateOrCreate([
-            'license_no'=>$request->license_plate
-       ],$data);
-      if($record){
+      $record = VehicleRegistration::updateOrCreate([
+         'license_no' => $request->license_plate
+      ], $data);
+      if ($record) {
          $id  = $record->id;
-            $complain = new Complain();
-            $complain->complain = $request->complaint;
-            $complain->vehicle_id = $id;
-            $complain->save();
+         $complain = new Complain();
+         $complain->complain = $request->complaint;
+         $complain->vehicle_id = $id;
+         $complain->save();
          return back()->with('success', 'Vehichle is registerd/updated Successfully');
-
-      
       }
-    
-      
    }
-   public function create(){
-      return view('vehicle.register');
+   public function show($id){
+      $vehicle = VehicleRegistration::findorFail($id);
+      return view('vehicle.details');
    }
 }
