@@ -9,16 +9,12 @@
                         <div class="card-header text-center">
                             <img src="{{ asset('assets/images/logo.png') }}" alt="">
                             <h2>Vehicle Registration</h2>
-                            <ul class="form-navbar pl-0 list-unstyled d-flex align-items-center justify-content-center mb-0 mt-3">
-                                <li><a class="nav-link" href="">Registered Vehicle</a></li>
-                                <li><a class="nav-link" href="">Users</a></li>
-                                <li><a class="nav-link" href="">Registered Vehicle</a></li>
-                                <li><a class="nav-link" href="">Registered Vehicle</a></li>
-                            </ul>
+                            @include('../partials.navigation')
                         </div>
                         <div class="card-body">
                             <form action="{{ route('vehicle.register.post') }}" method="post" class=" mt-4">
                                 @csrf
+                                <input type="hidden" name="vehicle_id" id="vehicle_id">
                                 @if (session()->has('success'))
                                     <div class="alert alert-success">
                                         {{ session()->get('success') }}
@@ -138,6 +134,7 @@
                 },
                 success: function(data) {
                     setTimeout(() => {
+                        $('#vehicle_id').val(data.id);
                         $('#name').val(data.name);
                         $('#email').val(data.email);
                         $('#phone').val(data.phone);
@@ -159,12 +156,3 @@
         })
     </script>
 @endsection
-{{-- a) License plate# (format: 12-34 A)
-b) Name
-c) Phone# (WhatsApp)
-d) Email
-e) Make
-f) Model
-g) Year
-h) Vin#
-i) Complaint/ service required --}}
