@@ -41,7 +41,7 @@
                                                 <td>{{$item->year}}</td>
                                                 <td>{{\Carbon\Carbon::parse($item->created_at)->toFormattedDateString();}}</td>
                                                 <td>
-                                                    <a class="v-details" href="{{route('vehichle.show',$item->id)}}"><i class="fa fa-eye"></i></a>
+                                                    <a class="v-details edit" href="{{route('vehichle.show',$item->id)}}"><i class="fa fa-eye"></i></a>
                                                 </td>
                                                 
                                             </tr>

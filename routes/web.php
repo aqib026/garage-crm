@@ -3,6 +3,8 @@
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\ComplaintController;
+use App\Http\Controllers\DealerController;
+use App\Http\Controllers\PartOrdersController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VehicleRegistrationController;
 use Illuminate\Support\Facades\Route;
@@ -38,3 +40,25 @@ Route::get('/vehicle-details/{id}', [VehicleRegistrationController::class, 'show
 Route::post('/vehicle-registration', [VehicleRegistrationController::class, 'vehicleRegisrationPost'])->name('vehicle.register.post');
 Route::post('/ajax-search', [AjaxController::class, 'index'])->name('ajax.search');
 Route::get('/work-orders', [ComplaintController::class, 'index'])->name('work.orders');
+
+/* --------------------------------------- */
+    /* dealer - Admin */
+    /* --------------------------------------- */
+    Route::get('dealers-list', [DealerController::class, 'index'])->name('dealer.index');
+    Route::get('create-dealer', [DealerController::class, 'create'])->name('dealer.create');
+    Route::post('create-dealer-store', [DealerController::class, 'store'])->name('dealer.store');
+    Route::get('dealer/delete/{id}', [DealerController::class, 'destroy']);
+    Route::get('edit-dealer/{id}', [DealerController::class, 'edit']);
+    Route::post('dealer-update/{id}', [DealerController::class, 'update']);
+/* --------------------------------------- */
+    /* Parts order - Admin */
+    /* --------------------------------------- */
+    Route::get('parts-orders', [PartOrdersController::class, 'index'])->name('parts.orders.index');
+    Route::get('create-orders', [PartOrdersController::class, 'create'])->name('parts.orders.create');
+    Route::post('create-orders-store', [PartOrdersController::class, 'store'])->name('parts.orders.store');
+    Route::get('orders/delete/{id}', [PartOrdersController::class, 'destroy']);
+    Route::get('edit-parts-orders/{id}', [PartOrdersController::class, 'edit']);
+    Route::post('parts-order-update/{id}', [PartOrdersController::class, 'update']);
+
+
+    Route::get('/new-row', [PartOrdersController::class, 'getnewRow'])->name('partorders.add');

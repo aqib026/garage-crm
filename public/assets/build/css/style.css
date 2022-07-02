@@ -294,7 +294,7 @@ i.loader {
 }
 
 .card-body .form-group .form-control {
-    height: 32px;
+    height: 36px;
 }
 
 .card-body .form-group .form-control:focus {
@@ -342,9 +342,18 @@ i.loader {
 }
 
 .v-details {
+    padding: 5px 15px;
+    box-shadow: 3px 4px 6px #d7d6d6;
+}
+
+.v-details.edit {
     background: #06123c;
     padding: 5px 15px;
     box-shadow: 3px 4px 6px #d7d6d6;
+}
+
+.v-details.delete {
+    background: #f21515;
 }
 
 .v-details i {
@@ -353,4 +362,21 @@ i.loader {
 
 .detail-text {
     font-size: 12px;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0 #06123c;
+}
+
+.nav-link.active {
+    color: #06123a;
+}
+
+.order-table thead tr th {
+    font-size: 12px;
+    padding: 5px;
 }
