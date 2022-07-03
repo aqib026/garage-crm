@@ -1,4 +1,4 @@
-<tr id="row_id_{{ $ids }} ">
+<tr id="row_id_{{ $ids }}">
     <td>
         <select name="dealer_id[]" id="dealer_id_1" class="form-control">
             <option value="" disabled>select Dealer</option>
@@ -17,5 +17,5 @@
     <td>
         <input type="text" name="price[]" class="form-control">
     </td>
-    <td><i class="fa fa-trash"></i></td>
+   <td><span class="product_delete" data-id="{{ $ids }}"><i class="fa fa-trash"></i></span></td>
 </tr>

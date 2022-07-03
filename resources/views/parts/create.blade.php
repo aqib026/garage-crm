@@ -16,6 +16,16 @@
                             </div>
                         </div>
                         <div class="card-body">
+                            @if (session()->has('success'))
+                                <div class="alert alert-success">
+                                    {{ session()->get('success') }}
+                                </div>
+                            @endif
+                            @if (session()->has('error'))
+                                <div class="alert alert-danger">
+                                    {{ session()->get('error') }}
+                                </div>
+                            @endif
                             <form action="{{ route('parts.orders.store') }}" method="post">
                                 @csrf
                                 <div class="row">
@@ -36,7 +46,8 @@
                                             <label for="vehicle_id">Vehicle:</label>
                                             <select name="vehicle_id" id="vehicle_id" class="form-control">
                                                 @foreach ($vehicles as $item)
-                                                <option value="{{$item->id}}">{{$item->make.' '.$item->model}}</option>
+                                                    <option value="{{ $item->id }}">{{ $item->make . ' ' . $item->model }}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -49,8 +60,7 @@
                                         <h5> Order Parts</h5>
                                     </div>
                                     <div class="">
-                                        <a  id="add_new_product" class="rv-btn"
-                                            url="{!! url('/new-row') !!}">Add New</a>
+                                        <a id="add_new_product" class="rv-btn" url="{!! url('/new-row') !!}">Add New</a>
 
                                     </div>
                                 </div>
@@ -71,7 +81,7 @@
                                                     <select name="dealer_id[]" id="dealer_id_1" class="form-control">
                                                         <option value="" disabled>select Dealer</option>
                                                         @foreach ($dealers as $item)
-                                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                         @endforeach
                                                     </select>
                                                 </td>
@@ -85,7 +95,9 @@
                                                 <td>
                                                     <input type="text" name="price[]" class="form-control">
                                                 </td>
-                                                <td><i class="fa fa-trash"></i></td>
+                                                <td>
+                                                    <span class="product_delete" data-id="0"><i class="fa fa-trash"></i></span>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -125,5 +137,16 @@
                     }
                 });
             })
+            
+	$('body').on('click','.product_delete',function(){
+		
+		var row_id = $(this).attr('data-id');
+		alert(row_id);
+		
+		$('table.order-table tr#row_id_'+row_id).fadeOut();
+	
+		return false;
+	});
+	
         </script>
     @endsection
