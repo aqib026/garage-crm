@@ -31,8 +31,8 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="billion_no">Billing No:</label>
-                                            <input type="text" name="billion_no" class="form-control">
+                                            <label for="billing_no">Billing No:</label>
+                                            <input type="text" name="billing_no" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -46,7 +46,8 @@
                                             <label for="vehicle_id">Vehicle:</label>
                                             <select name="vehicle_id" id="vehicle_id" class="form-control">
                                                 @foreach ($vehicles as $item)
-                                                    <option value="{{ $item->id }}">{{ $item->make . ' ' . $item->model }}
+                                                    <option value="{{ $item->id }}">
+                                                        {{ $item->make . ' ' . $item->model }}
                                                     </option>
                                                 @endforeach
                                             </select>
@@ -96,7 +97,8 @@
                                                     <input type="text" name="price[]" class="form-control">
                                                 </td>
                                                 <td>
-                                                    <span class="product_delete" data-id="0"><i class="fa fa-trash"></i></span>
+                                                    <span class="product_delete" data-id="0"><i
+                                                            class="fa fa-trash"></i></span>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -137,16 +139,15 @@
                     }
                 });
             })
-            
-	$('body').on('click','.product_delete',function(){
-		
-		var row_id = $(this).attr('data-id');
-		alert(row_id);
-		
-		$('table.order-table tr#row_id_'+row_id).fadeOut();
-	
-		return false;
-	});
-	
+
+            $('body').on('click', '.product_delete', function() {
+
+                var row_id = $(this).attr('data-id');
+                alert(row_id);
+
+                $('table.order-table tr#row_id_' + row_id).fadeOut();
+
+                return false;
+            });
         </script>
     @endsection

@@ -13,7 +13,8 @@ class PartOrdersController extends Controller
 
     public function index()
     {
-        $partsOrders = Dealer::where('status', 'Active')->get();
+        $partsOrders = PartOrders::with('vehicle','parts')->get();
+       
         return view('parts.index', compact('partsOrders'));
     }
 
@@ -32,7 +33,7 @@ class PartOrdersController extends Controller
     public function store(Request $request)
     {
         $part_orders = new PartOrders();
-        $part_orders->billing_no = $request->billion_no;
+        $part_orders->billing_no = $request->billing_no;
         $part_orders->customer_name = $request->customer_name;
         $part_orders->vehicle_id  = $request->vehicle_id;
         $part_orders->save();
