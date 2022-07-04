@@ -6,18 +6,13 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="card border-0 shadow-lg" style="box-shadow:3px 6px 7px #d4d2d2;">
-                        <div class="card-header text-center">
-                            <div class="back-button text-left">
+                        @include('../partials.navigation')
+                        <div class="card-body">
+                            <div class="back-button text-left mb-3">
                                 <a href="{{route('vehicle.register')}}" class="rv-btn text-decoration-none">Register Vehicle
                                     <i class="fa fa-plus ml-1"></i>
                                 </a>
                             </div>
-                            <a href="{{URL('/')}}"><img src="{{ asset('assets/images/logo.png') }}" alt=""></a> 
-                            <h2>Vehicle Registration</h2>
-                            @include('../partials.navigation')
-                            
-                        </div>
-                        <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table text-center vehicle-table">
                                     <thead class="text-uppercase ">

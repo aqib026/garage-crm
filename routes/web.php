@@ -59,6 +59,7 @@ Route::get('/work-orders', [ComplaintController::class, 'index'])->name('work.or
     Route::get('orders/delete/{id}', [PartOrdersController::class, 'destroy']);
     Route::get('edit-parts-orders/{id}', [PartOrdersController::class, 'edit']);
     Route::post('parts-order-update/{id}', [PartOrdersController::class, 'update']);
+    Route::get('view-order/{id}', [PartOrdersController::class, 'show']);
 
 
     Route::get('/new-row', [PartOrdersController::class, 'getnewRow'])->name('partorders.add');

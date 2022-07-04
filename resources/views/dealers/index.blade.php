@@ -6,13 +6,8 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="card border-0 shadow-lg" style="box-shadow:3px 6px 7px #d4d2d2;">
-                        <div class="card-header text-center">
-                            <a href="{{ URL('/') }}"><img src="{{ asset('assets/images/logo.png') }}"
-                                    alt=""></a>
-                            <h2>Vehicle Registration</h2>
-                            @include('../partials.navigation')
+                        @include('../partials.navigation')
 
-                        </div>
                         <div class="card-body">
                             @if (session()->has('success'))
                             <div class="alert alert-success">

@@ -61,7 +61,8 @@ class PartOrdersController extends Controller
      */
     public function show($id)
     {
-        //
+        $details = PartOrders::with('vehicle','parts')->find($id);
+        return view('parts.details', compact('details'));
     }
 
     /**
