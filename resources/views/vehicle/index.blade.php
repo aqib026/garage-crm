@@ -18,8 +18,9 @@
                                     <thead class="text-uppercase ">
                                         <tr class="text-white">
                                             <th>S.no#</th>
-                                            <th>VIN</th>
                                             <th>License #</th>
+                                            <th>VIN</th>
+                                          
                                             <th>Make</th>
                                             <th>Model</th>
                                             <th>Year</th>
