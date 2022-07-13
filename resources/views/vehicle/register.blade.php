@@ -4,14 +4,16 @@
 
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <div class="card border-0 shadow-lg">
                         @include('../partials.navigation')
                         <div class="card-body">
-                            <form action="{{ route('vehicle.register.post') }}" method="post" class=" mt-4">
-                                @csrf
-                                <input type="hidden" name="vehicle_id" id="vehicle_id">
-                                @if (session()->has('success'))
+                            @if ($errors->any())
+                            <div class="alert alert-danger">
+                                {!! implode('', $errors->all('<div>:message</div>')) !!}
+                            </div>
+                            @endif
+                            @if (session()->has('success'))
                                     <div class="alert alert-success">
                                         {{ session()->get('success') }}
                                     </div>
@@ -21,6 +23,10 @@
                                         {{ session()->get('error') }}
                                     </div>
                                 @endif
+                            <form action="{{ route('vehicle.register.post') }}" method="post" class=" mt-4">
+                                @csrf
+                                <input type="hidden" name="vehicle_id" id="vehicle_id">
+                                
                                 <div class="row align-items-center">
                                     <div class="col-md-6">
                                         <div class="form-group mb-2">
@@ -37,55 +43,62 @@
                                     <div class="col-md-6">
                                         <div class="form-group mb-2">
                                             <label for="name">Name:</label>
-                                            <input type="text" value="" class="form-control shadow-none" name="name" id="name">
+                                            <input type="text" value="" class="form-control shadow-none"
+                                                name="name" id="name">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group mb-2">
                                             <label for="email">Email</label>
-                                            <input type="email" value="" class="form-control shadow-none" name="email" id="email">
+                                            <input type="email" value="" class="form-control shadow-none"
+                                                name="email" id="email">
                                         </div>
                                     </div>
-        
+
                                     <div class="col-md-6">
                                         <div class="form-group mb-2">
                                             <label for="phone">Phone# (WhatsApp)</label>
-                                            <input type="text" value="" class="form-control shadow-none" name="phone" id="phone">
+                                            <input type="text" value="" class="form-control shadow-none"
+                                                name="phone" id="phone">
                                         </div>
                                     </div>
-        
-        
+
+
                                     <div class="col-md-6">
                                         <div class="form-group mb-2">
                                             <label for="make">Make</label>
-                                            <input type="text" value="" class="form-control shadow-none" name="make" id="make">
+                                            <input type="text" value="" class="form-control shadow-none"
+                                                name="make" id="make">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-        
+
                                         <div class="form-group mb-2">
                                             <label for="model">Model</label>
-                                            <input type="text" value="" class="form-control shadow-none" name="model" id="model">
+                                            <input type="text" value="" class="form-control shadow-none"
+                                                name="model" id="model">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-        
+
                                         <div class="form-group mb-2">
                                             <label for="year">Year</label>
-                                            <input type="text" value="" class="form-control shadow-none" name="year" id="year">
+                                            <input type="text" value="" class="form-control shadow-none"
+                                                name="year" id="year">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group mb-2">
                                             <label for="vin">Vin#</label>
-                                            <input type="text" value="" class="form-control shadow-none" name="vin" id="vin">
+                                            <input type="text" value="" class="form-control shadow-none"
+                                                name="vin" id="vin">
                                         </div>
                                     </div>
                                     <div id="lastVisit" class="col-md-6 hidden">
                                         <div class="form-group mb-2">
                                             <label for="last_visit">last Visit#</label>
-                                            <input type="text" value="" class="form-control shadow-none" name="last_visit"
-                                                id="last_visit" disabled>
+                                            <input type="text" value="" class="form-control shadow-none"
+                                                name="last_visit" id="last_visit" disabled>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
@@ -119,9 +132,11 @@
             }
         });
         $('#license_plate').on('change', function() {
+            var license_plate = $(this).val();
+            
             $('#spinner').removeClass('hidden');
             $('.card').addClass('overlay');
-            var license_plate = $(this).val();
+            
             $.ajax({
                 type: 'post',
                 url: "{{ route('ajax.search') }}",
@@ -140,11 +155,11 @@
                         $('#vin').val(data.vin);
                         $('#spinner').addClass('hidden');
                         $('.card').removeClass('overlay');
-                        if(data){
+                        if (data) {
                             $('#lastVisit').removeClass('hidden');
-                        $('#last_visit').val(data.last_visit);
+                            $('#last_visit').val(data.last_visit);
                         }
-                        
+
                     }, 1000);
 
                 }

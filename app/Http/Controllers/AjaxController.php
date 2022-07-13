@@ -12,15 +12,16 @@ class AjaxController extends Controller
     {
 
         if ($request->ajax()) {
+            if ($request->license != '') {
+                $vehicle = VehicleRegistration::with('lastvisit')->where('license_no', 'LIKE', '%' . $request->license_no . "%")->first();
 
-            $vehicle = VehicleRegistration::with('lastvisit')->where('license_no', 'LIKE', '%' . $request->license_no . "%")->first();
-          
 
-            if ($vehicle) {
-                $date = \Carbon\Carbon::parse($vehicle->lastvisit->created_at);
-                $vehicle->last_visit = $date->toFormattedDateString();
+                if ($vehicle) {
+                    $date = \Carbon\Carbon::parse($vehicle->lastvisit->created_at);
+                    $vehicle->last_visit = $date->toFormattedDateString();
 
-                return response()->json($vehicle);
+                    return response()->json($vehicle);
+                }
             }
         }
     }
