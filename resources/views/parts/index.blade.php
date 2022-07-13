@@ -4,7 +4,7 @@
 
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <div class="card border-0 shadow-lg" style="box-shadow:3px 6px 7px #d4d2d2;">
                         @include('../partials.navigation')
                         <div class="card-body">
