@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDealersTable extends Migration
+class AddStatusColumnToDealersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateDealersTable extends Migration
      */
     public function up()
     {
-        Schema::create('dealers', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('phone');
-            $table->string('email');
-            $table->string('address');
-            $table->timestamps();
+        Schema::table('dealers', function (Blueprint $table) {
+            $table->enum('status', ['Active', 'In Active','Deleted'])->default('Active');
+        
         });
     }
 
@@ -30,6 +26,8 @@ class CreateDealersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dealers');
+        Schema::table('dealers', function (Blueprint $table) {
+            //
+        });
     }
 }
