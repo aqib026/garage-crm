@@ -19,6 +19,7 @@
                                         <tr class="text-white">
                                             <th>S.no#</th>
                                             <th>VIN</th>
+                                            <th>License #</th>
                                             <th>Make</th>
                                             <th>Model</th>
                                             <th>Year</th>
@@ -30,6 +31,7 @@
                                         @foreach ($vehicles as $item)
                                             <tr>
                                                 <td>{{$item->id}}</td>
+                                                <td>{{$item->license_no}}</td>
                                                 <td>{{$item->vin}}</td>
                                                 <td>{{$item->make}}</td>
                                                 <td>{{$item->model}}</td>
