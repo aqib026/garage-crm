@@ -11,8 +11,9 @@ class AjaxController extends Controller
     public function index(Request $request)
     {
 
+
         if ($request->ajax()) {
-            if ($request->license != '') {
+            if ($request->license_no != '') {
                 $vehicle = VehicleRegistration::with('lastvisit')->where('license_no', 'LIKE', '%' . $request->license_no . "%")->first();
 
 
