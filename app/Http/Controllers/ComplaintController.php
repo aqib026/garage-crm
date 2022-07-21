@@ -2,11 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\File;
 use App\Models\Complain;
 use Illuminate\Http\Request;
 
 class ComplaintController extends Controller
 {
+    public function __construct()
+    {
+       $this->statuses = [
+        'Open'=>'Open',
+        'Paused'=>'Paused',
+        'Pending'=>'Pending',
+        'Closed'=>'Closed'
+       ];
+    }
     /**
      * Display a listing of the resource.
      *
@@ -47,7 +57,9 @@ class ComplaintController extends Controller
      */
     public function show($id)
     {
-        //
+        $statuses = $this->statuses;
+        $complain = Complain::with('files','vehicle')->find($id);
+        return view('vehicle.complain-details',compact('complain','statuses'));
     }
 
     /**
@@ -70,7 +82,25 @@ class ComplaintController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $data = [
+        'complain'=>$request->complain_description,
+        'note'=>$request->notes,
+        'status'=>$request->status
+       ];
+       $complain = Complain::where('id',$id)->update($data);
+       if ($request->hasfile('file')) {
+        foreach ($request->file('file') as $file) {
+           $name = time() . rand(1, 100) . '.' . $file->extension();
+           $file->move(public_path('files'), $name);
+           $file = new File();
+           $file->filenames = $name;
+           $file->vehicle_id = $request->vehicle_id;
+           $file->complain_id = $id;
+           $file->save();
+        }
+     }
+     return back()->with('success', 'Complain  is updated Successfully');
+
     }
 
     /**

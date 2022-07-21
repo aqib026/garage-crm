@@ -52,6 +52,7 @@
                                             <th width="60%">Detail</th>
                                             <th>Status</th>
                                             <th>Date</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -72,12 +73,26 @@
                                             @endif
                                         </td>
                                         <td>{{ \Carbon\Carbon::parse($complain->created_at)->toFormattedDateString() }}
+                                        </td>
+                                        <td>
+                                            <a class="v-details edit" href="{{route('complain.show',$complain->id)}}"><i class="fa fa-eye"></i></a>
+                                        </td>
                                     </tr>
                                     @endforeach
                                         
                                     </tbody>
                                 </table>
                             </div>
+                            {{-- <div class="row">
+                                <div class="card-title"></div>
+                                @foreach ($vehicle->files as $file)
+                                <div class="col-md-3  text-center">
+                                    <div class="image-div">
+                                        <img src="{{asset('')}}files/{{$file->filenames}}" alt="" style="max-width: 100px;">
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div> --}}
                         </div>
                     </div>
                 </div>

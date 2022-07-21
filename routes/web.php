@@ -40,6 +40,8 @@ Route::get('/vehicle-details/{id}', [VehicleRegistrationController::class, 'show
 Route::post('/vehicle-registration', [VehicleRegistrationController::class, 'vehicleRegisrationPost'])->name('vehicle.register.post');
 Route::post('/ajax-search', [AjaxController::class, 'index'])->name('ajax.search');
 Route::get('/work-orders', [ComplaintController::class, 'index'])->name('work.orders');
+Route::get('/complain-details/{id}', [ComplaintController::class, 'show'])->name('complain.show');
+Route::post('/complain-update/{id}', [ComplaintController::class, 'update'])->name('complain.update');
 
 /* --------------------------------------- */
     /* dealer - Admin */

@@ -9,13 +9,7 @@
                         @include('../partials.navigation')
 
                         <div class="card-body">
-                            @if ($errors->any())
-                            <div class="alert alert-danger">
-                                @foreach ($errors->all() as $error)
-                               <p>{{ $error }}</p>
-                                @endforeach
-                            </div>
-                            @endif
+                            
                             @if (session()->has('success'))
                                 <div class="alert alert-success">
                                     {{ session()->get('success') }}
@@ -35,19 +29,34 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="name">Name:</label>
-                                            <input type="text" name="name" class="form-control">
+                                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror">
+                                            @error('name')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="phone">Phone:</label>
-                                            <input type="text" name="phone" class="form-control">
+                                            <input type="text" name="phone" class="form-control @error('phone') is-invalid @enderror">
+                                            @error('phone')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="email">Email:</label>
-                                            <input type="email" name="email" class="form-control">
+                                            <input type="email" name="email" class="form-control  @error('email') is-invalid @enderror">
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-6">

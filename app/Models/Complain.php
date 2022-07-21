@@ -12,4 +12,8 @@ class Complain extends Model
     {
         return $this->belongsTo(VehicleRegistration::class);
     }
+    public function files()
+    {
+        return $this->hasMany(File::class, 'complain_id');
+    }
 }
