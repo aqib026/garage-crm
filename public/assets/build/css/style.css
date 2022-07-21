@@ -338,7 +338,9 @@ i.loader {
 }
 
 .badge {
-    padding: 6px !important;
+    padding: 7px 10px !important;
+    font-size: 12px;
+    margin-left: 5px;
 }
 
 .v-details {
@@ -379,4 +381,58 @@ i.loader {
 .order-table thead tr th {
     font-size: 12px;
     padding: 5px;
+}
+
+
+/* .image-gallery {
+    max-height: 300px;
+    overflow: scroll;
+    overflow-x: hidden;
+} */
+
+
+/* .image-gallery::-webkit-scrollbar {
+    width: 8px;
+    background: #000a2d;
+}
+
+.image-gallery::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+}
+
+.image-gallery::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+} */
+
+.image-gallery {
+    margin-left: 30px;
+    float: left;
+    height: 300px;
+    background: #FFFFFF;
+    overflow-y: scroll;
+    margin-bottom: 25px;
+    overflow-x: hidden;
+}
+
+.force-overflow {
+    min-height: 450px;
+}
+
+.image-gallery::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+.image-gallery::-webkit-scrollbar {
+    width: 4px;
+    background-color: #F5F5F5;
+}
+
+.image-gallery::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #252b42;
 }

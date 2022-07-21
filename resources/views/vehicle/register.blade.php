@@ -8,25 +8,23 @@
                     <div class="card border-0 shadow-lg">
                         @include('../partials.navigation')
                         <div class="card-body">
-                            @if ($errors->any())
-                            <div class="alert alert-danger">
-                                {!! implode('', $errors->all('<div>:message</div>')) !!}
-                            </div>
-                            @endif
+
+                        
                             @if (session()->has('success'))
-                                    <div class="alert alert-success">
-                                        {{ session()->get('success') }}
-                                    </div>
-                                @endif
-                                @if (session()->has('error'))
-                                    <div class="alert alert-danger">
-                                        {{ session()->get('error') }}
-                                    </div>
-                                @endif
-                            <form action="{{ route('vehicle.register.post') }}" method="post" class=" mt-4">
+                                <div class="alert alert-success">
+                                    {{ session()->get('success') }}
+                                </div>
+                            @endif
+                            @if (session()->has('error'))
+                                <div class="alert alert-danger">
+                                    {{ session()->get('error') }}
+                                </div>
+                            @endif
+                            <form action="{{ route('vehicle.register.post') }}" method="post" class=" mt-4"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="vehicle_id" id="vehicle_id">
-                                
+
                                 <div class="row align-items-center">
                                     <div class="col-md-6">
                                         <div class="form-group mb-2">
@@ -40,26 +38,52 @@
                                     </div>
                                 </div>
                                 <div class="row ">
+                                    {{-- <div class="col-md-6">
+                                        <div class="form-group mb-2">
+                                            <label for="date">Date</label>
+                                            <input type="datetime-local" value="" class="form-control" name="date"
+                                                id="date">
+                                        </div>
+                                    </div> --}}
                                     <div class="col-md-6">
                                         <div class="form-group mb-2">
                                             <label for="name">Name:</label>
-                                            <input type="text" value="" class="form-control shadow-none"
+                                            <input type="text" value=""
+                                                class="form-control shadow-none  @error('name') is-invalid @enderror"
                                                 name="name" id="name">
+                                            @error('name')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
+
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group mb-2">
                                             <label for="email">Email</label>
-                                            <input type="email" value="" class="form-control shadow-none"
+                                            <input type="email" value=""
+                                                class="form-control shadow-none @error('email') is-invalid @enderror"
                                                 name="email" id="email">
+                                            @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group mb-2">
                                             <label for="phone">Phone# (WhatsApp)</label>
-                                            <input type="text" value="" class="form-control shadow-none"
+                                            <input type="text" value=""
+                                                class="form-control shadow-none @error('phone') is-invalid @enderror"
                                                 name="phone" id="phone">
+                                            @error('phone')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -67,31 +91,55 @@
                                     <div class="col-md-6">
                                         <div class="form-group mb-2">
                                             <label for="make">Make</label>
-                                            <input type="text" value="" class="form-control shadow-none"
+                                            <input type="text" value=""
+                                                class="form-control shadow-none @error('make') is-invalid @enderror"
                                                 name="make" id="make">
+                                            @error('make')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-6">
 
                                         <div class="form-group mb-2">
                                             <label for="model">Model</label>
-                                            <input type="text" value="" class="form-control shadow-none"
+                                            <input type="text" value=""
+                                                class="form-control shadow-none @error('model') is-invalid @enderror"
                                                 name="model" id="model">
+                                            @error('model')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-6">
 
                                         <div class="form-group mb-2">
                                             <label for="year">Year</label>
-                                            <input type="text" value="" class="form-control shadow-none"
+                                            <input type="text" value=""
+                                                class="form-control shadow-none @error('year') is-invalid @enderror"
                                                 name="year" id="year">
+                                            @error('year')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group mb-2">
                                             <label for="vin">Vin#</label>
-                                            <input type="text" value="" class="form-control shadow-none"
+                                            <input type="text" value=""
+                                                class="form-control shadow-none @error('vin') is-invalid @enderror"
                                                 name="vin" id="vin">
+                                            @error('vin')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div id="lastVisit" class="col-md-6 hidden">
@@ -105,6 +153,13 @@
                                         <div class="form-group mb-2">
                                             <label for="complaint">Complaint/ service</label>
                                             <textarea value="" class="form-control shadow-none" name="complaint" id="complaint"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-2">
+                                            <label for="complaint">Upload Images</label>
+                                            <input type="file" value="" class="form-control " name="file[]"
+                                                id="file" multiple style="height: 43px;">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
@@ -133,10 +188,10 @@
         });
         $('#license_plate').on('change', function() {
             var license_plate = $(this).val();
-            
+
             $('#spinner').removeClass('hidden');
             $('.card').addClass('overlay');
-            
+
             $.ajax({
                 type: 'post',
                 url: "{{ route('ajax.search') }}",

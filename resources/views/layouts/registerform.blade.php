@@ -68,6 +68,7 @@
     <script src="{{ asset('assets') }}/build/js/custom.min.js"></script>
     <script type="text/javascript" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js"></script>
     @yield('page-script')
+    @yield('complain-scripts')
 </body>
 
 </html>

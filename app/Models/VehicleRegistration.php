@@ -13,6 +13,7 @@ class VehicleRegistration extends Model
     {
         return $this->hasMany(Complain::class, 'vehicle_id');
     }
+    
     public function lastvisit()
     {
         return $this->hasOne(Complain::class, 'vehicle_id')->latest();

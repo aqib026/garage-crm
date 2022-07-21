@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\File;
 use App\Models\Complain;
-use App\Models\VehicleRegistration;
 use Illuminate\Http\Request;
+use App\Models\VehicleRegistration;
 
 class VehicleRegistrationController extends Controller
 {
@@ -50,16 +51,33 @@ class VehicleRegistrationController extends Controller
          'license_no' => $request->license_plate
       ], $data);
       if ($record) {
+
          $id  = $record->id;
          $complain = new Complain();
          $complain->complain = $request->complaint;
          $complain->vehicle_id = $id;
          $complain->save();
+
+         if ($complain) {
+            if ($request->hasfile('file')) {
+               foreach ($request->file('file') as $file) {
+                  $name = time() . rand(1, 100) . '.' . $file->extension();
+                  $file->move(public_path('files'), $name);
+                  $file = new File();
+                  $file->filenames = $name;
+                  $file->vehicle_id = $record->id;
+                  $file->complain_id = $complain->id;
+                  $file->save();
+               }
+            }
+         }
          return back()->with('success', 'Vehichle is registerd/updated Successfully');
       }
    }
-   public function show($id){
+   public function show($id)
+   {
       $vehicle = VehicleRegistration::with('complains')->findorFail($id);
-      return view('vehicle.details',compact('vehicle'));
+
+      return view('vehicle.details', compact('vehicle'));
    }
 }
