@@ -152,7 +152,12 @@
                                     <div class="col-md-12">
                                         <div class="form-group mb-2">
                                             <label for="complaint">Complaint/ service</label>
-                                            <textarea value="" class="form-control shadow-none" name="complaint" id="complaint"></textarea>
+                                            <textarea value="" class="form-control shadow-none @error('complaint') is-invalid @enderror" name="complaint" id="complaint"></textarea>
+                                            @error('complaint')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-6">
