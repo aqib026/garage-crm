@@ -6,6 +6,7 @@ use App\Models\File;
 use App\Models\Complain;
 use Illuminate\Http\Request;
 use App\Models\VehicleRegistration;
+use Illuminate\Support\Facades\Validator;
 
 class VehicleRegistrationController extends Controller
 {
@@ -27,7 +28,18 @@ class VehicleRegistrationController extends Controller
    {
 
 
-      $request->validate([
+      // $request->validate([
+      //    'license_plate' => 'required',
+      //    'name' => 'required',
+      //    'email' => 'required|email',
+      //    'phone' => 'required',
+      //    'make' => 'required',
+      //    'model' => 'required',
+      //    'year' => 'required',
+      //    'vin' => 'required',
+      //    'complaint' => 'required',
+      // ]);
+      $sValidationRules = [
          'license_plate' => 'required',
          'name' => 'required',
          'email' => 'required|email',
@@ -37,7 +49,15 @@ class VehicleRegistrationController extends Controller
          'year' => 'required',
          'vin' => 'required',
          'complaint' => 'required',
-      ]);
+       ];
+ 
+       $validator = Validator::make($request->all(), $sValidationRules);
+ 
+       if ($validator->fails()) // on validator found any error 
+       {
+         // pass validator object in withErrors method & also withInput it should be null by default
+          return back()->withErrors($validator)->withInput();
+       }
 
       $data = [
          'name' => $request->name,
