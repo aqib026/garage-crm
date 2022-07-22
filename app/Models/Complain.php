@@ -16,4 +16,8 @@ class Complain extends Model
     {
         return $this->hasMany(File::class, 'complain_id');
     }
+    public function notes()
+    {
+        return $this->hasMany(Note::class, 'complain_id');
+    }
 }

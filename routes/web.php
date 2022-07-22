@@ -42,6 +42,8 @@ Route::post('/ajax-search', [AjaxController::class, 'index'])->name('ajax.search
 Route::get('/work-orders', [ComplaintController::class, 'index'])->name('work.orders');
 Route::get('/complain-details/{id}', [ComplaintController::class, 'show'])->name('complain.show');
 Route::post('/complain-update/{id}', [ComplaintController::class, 'update'])->name('complain.update');
+Route::post('/complain-status-update/{id}', [ComplaintController::class, 'statusUpdate'])->name('complain.status.update');
+Route::post('/complain-note-update/{id}', [ComplaintController::class, 'noteUpdate'])->name('note.update');
 
 /* --------------------------------------- */
     /* dealer - Admin */
