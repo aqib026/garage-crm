@@ -36,6 +36,7 @@ class VehicleRegistrationController extends Controller
          'model' => 'required',
          'year' => 'required',
          'vin' => 'required',
+         'complaint' => 'required',
       ]);
 
       $data = [
