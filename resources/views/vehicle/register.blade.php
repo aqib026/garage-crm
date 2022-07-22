@@ -29,7 +29,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group mb-2">
                                             <label for="license_plate">License plate#</label>
-                                            <input type="text" value="" data-inputmask="'mask': '99-99 A'"
+                                            <input type="text"value="{{ old('license_plate') }}" data-inputmask="'mask': '99-99 A'"
                                                 class="form-control shadow-none" name="license_plate" id="license_plate">
                                         </div>
                                     </div>
